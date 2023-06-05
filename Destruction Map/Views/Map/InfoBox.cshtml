@@ -1,0 +1,18 @@
+﻿@model List<EventWebModel>
+
+@if (Model != null)
+{
+    foreach (var ev in Model)
+    {
+        <div class="event">
+            @ev.Description<br/>
+            text text text text text text text
+            text text text text text text text
+            Location: @ev.Location<br/>
+            BuildingType: @ev.BuildingType
+
+        </div>
+            
+        }
+    
+}

@@ -1,0 +1,74 @@
+﻿@using DestructionMapModel.Models.Enums
+@model EventWebModel
+
+@{
+    ViewBag.Title = "Add Event";
+
+}
+
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Map" asp-action="Index">Destruction Map</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+
+                <!--partial name="_LoginPartial"/-->
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main style="display: flex; justify-content: center" role="main"><br/>
+    
+    <div style="justify-content: center; width: 30%" class="addEventMenu">
+        <h2 align="center" style="margin-top: 30px">Add event</h2><br/>
+        
+        <form method="post" asp-action="AddEvent">
+            Event date:<br/> <input class="form-control" required type="date" name="eventDate"/><br/><br/>
+            
+            <input placeholder="Location" class="form-control" required type="text" name="location"/><br/><br/>
+            <div class="invalid-feedback">
+                Please provide a valid city.
+                </div>
+            
+            <input placeholder="Description" class="form-control" required type="text" name="description"/><br/><br/>
+            
+            <select class="buildingTypeSelect form-control" required name="buildingType">
+                <option value="">-- Select building type --</option>
+                @foreach (BuildingType building in Enum.GetValues(typeof(BuildingType)))
+                {
+                    if (building != BuildingType.Undefined)
+                    {
+                        <option value="@building">@building.ToString().Replace("_", " ").Replace(";", "")</option>
+                    }
+                }
+            </select><br/><br/>
+            
+            <select class="weaponSystemSelect form-control" required name="weaponSystem">
+                <option value="">-- Select weapon system --</option>
+                @foreach (WeaponSystem weapon in Enum.GetValues(typeof(WeaponSystem)))
+                {
+                    if (weapon != WeaponSystem.Unknown)
+                    {
+                        <option value="@weapon">@weapon.ToString().Replace("_", " ").Replace(";", "")</option>
+                    }
+                }
+            </select><br/><br/>
+            
+            <textarea required placeholder="Enter sources. Start each one from new line" class="form-control" type="text" name="sources" multiple></textarea><br/><br/>
+            
+            <div style="display: flex; justify-content: center">
+            <input style="align-items: center" class="btn btn-primary btn-lg" type="submit" value="Send"/>
+            </div>
+        </form>
+        
+    </div>
+    
+    
+</main>
+
+

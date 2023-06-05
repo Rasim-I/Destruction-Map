@@ -1,0 +1,83 @@
+﻿@page
+@model RegisterModel
+@{
+
+    ViewData["Title"] = "Register";
+}
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Map" asp-action="Index">Destruction Map</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+
+                
+                <!--partial name="_LoginPartial"/-->
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+<main role="main" >
+
+    
+
+    <div style="margin-top: 5%" class="row justify-content-center">
+        
+        <h1 align="center" >@ViewData["Title"]</h1>
+        
+        <div class="col-md-4">
+            <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                
+                <hr/>
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                <div class="form-floating mb3">
+                    <input asp-for="Input.Name" class="form-control" autocomplete="name" aria-required="true" placeholder="Name"/>
+                    <label asp-for="Input.Name">Name</label>
+                    <span asp-validation-for="Input.Name" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb3">
+                    <input asp-for="Input.Surname" class="form-control" autocomplete="surname" aria-required="true" placeholder="Surname"/>
+                    <label asp-for="Input.Surname">Surname</label>
+                    <span asp-validation-for="Input.Surname" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb3">
+                    <input asp-for="Input.Address" class="form-control" autocomplete="address" aria-required="true" placeholder="Address"/>
+                    <label asp-for="Input.Address">Address</label>
+                    <span asp-validation-for="Input.Address" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb3">
+                    <input asp-for="Input.Age" class="form-control" autocomplete="age" aria-required="true" placeholder="Age"/>
+                    <label asp-for="Input.Age">Age</label>
+                    <span asp-validation-for="Input.Age" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com"/>
+                    <label asp-for="Input.Email">Email</label>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password"/>
+                    <label asp-for="Input.Password">Password</label>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password"/>
+                    <label asp-for="Input.ConfirmPassword">Confirm Password</label>
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                </div>
+                <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+            </form>
+        </div>
+
+    </div>
+
+</main>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

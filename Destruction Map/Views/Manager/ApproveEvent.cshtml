@@ -1,0 +1,83 @@
+﻿@using DestructionMapModel.Models
+@model List<DestructionMapModel.Models.Event>
+
+@{
+    ViewBag.Title = "Add Event";    
+}
+
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Map" asp-action="Index">Destruction Map</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+
+                <!--partial name="_LoginPartial"/-->
+            </div>
+        </div>
+    </nav>
+</header>
+
+ <h3 align="center" >Events to approve</h3>
+
+<main style="display: flex; justify-content: center" role="main">
+    
+
+    <div class="eventToApproveContainer">
+        @foreach (Event eventToApprove in Model)
+        {
+
+            <div class="eventToApprove">
+                <form method="post">
+                    <label >Event ID: @eventToApprove.Id</label><br/>
+                    <label class="eventApprovalLabel">User ID: @eventToApprove.User_Id</label><br/>
+                    <label class="eventApprovalLabel">Location: @eventToApprove.Location</label><br/>
+                    <label class="eventApprovalLabel">Description: @eventToApprove.Description</label><br/>
+                    <label>Event date: @eventToApprove.EventDate</label><br/>
+                    <label>Damaged building type: @eventToApprove.BuildingType</label><br/>
+                    <label>Used weapon system: @eventToApprove.WeaponSystem</label><br/><br/>
+
+                    <label>Sources:</label><br/>    
+                    @foreach (Source source in eventToApprove.SourceList)
+                    {
+                        <label class="eventApprovalLabel">@source.Link</label><br/>
+                    }<br/>
+                    
+                    
+                    <button asp-action="Approve" class="btn btn-success" name="eventId" value="@eventToApprove.Id">Approve</button>
+                    <button asp-action="Decline" class="btn btn-success" name="eventId" value="@eventToApprove.Id">Decline</button>
+                </form>
+            
+            </div>
+        }
+            
+    </div>
+    
+    <style>
+        .eventToApproveContainer{
+        width: 30%;
+        height: 80vh;
+        background-color: #ced4da;
+        border-radius: 10px;
+        overflow: auto;
+        }
+        .eventToApprove{
+            margin: 7px 25px 30px 25px;
+            display: block;
+            border: 3px solid black;
+            border-radius: 20px;
+            padding: 10px;
+        }
+        
+     .eventApprovalLabel{
+     white-space: normal;
+     word-break: break-word;
+     overflow-wrap: break-word;
+     }
+    </style>
+    
+</main>
+

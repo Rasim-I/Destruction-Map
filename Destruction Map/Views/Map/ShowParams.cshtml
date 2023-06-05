@@ -1,0 +1,67 @@
+﻿@using DestructionMapModel.Implementation.Services.Utility
+@using DestructionMapModel.Models.Enums
+@using static DestructionMapModel.Models.Enums.BuildingType
+@using static DestructionMapModel.Models.Enums.WeaponSystem
+
+
+<style>
+
+  .parameters_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+  
+  
+</style>
+
+<div class="parameters_container">
+  
+  
+  
+  <form asp-action="SearchByParams" method="get">
+
+    <div class="buildingTypeBox">
+      <h3>Select building type:</h3>
+      
+      @foreach (Enum buildingType in Enum.GetValues(typeof(BuildingType)))
+      {
+        @if ((BuildingType)buildingType != BuildingType.Undefined)
+        {
+          <div class="form-check buildingType_container">
+            <input class="form-check-input" name="selectedBuildings" type="checkbox" value="@buildingType" id="@buildingType">
+            <label class="form-check-label" for="@buildingType">
+              @buildingType.ToString().Replace("_", " ").Replace(";", "")
+            </label>
+          </div>
+        }
+      }
+    </div>
+      
+    <div class="weaponSystemBox">
+      <h3>Select weapon system:</h3>
+      
+      @foreach (Enum weaponSystem in Enum.GetValues(typeof(WeaponSystem)))
+      {
+        @if ((WeaponSystem)weaponSystem != WeaponSystem.Unknown)
+        {
+          <div class="form-check weaponSystem_container">
+            <input class="form-check-input" name="selectedWeaponSystems" type="checkbox" value="@weaponSystem" id="@weaponSystem">
+            <label class="form-check-label" for="@weaponSystem">
+              @weaponSystem.ToString().Replace("_", " ").Replace(";", "")
+            </label>
+          </div>
+        }
+      }
+    </div>
+      
+    <label style="margin-right: 8px">Date: </label><input type="date" class="form-control" name="date"/>
+    
+    <input style="margin-bottom: 5px" placeholder="Location" class="form-control" name="location" type="text"/>
+    
+    <input class="btn btn-primary btn-lg" type="submit" value="Search"/>
+    
+    </form>
+    
+    
+</div>

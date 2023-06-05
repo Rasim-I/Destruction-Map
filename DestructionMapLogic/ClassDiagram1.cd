@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DestructionMapModel.Implementation.Mappers.EventMapper">
+    <Position X="13" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAABAAAEAAAAAAA=</HashCode>
+      <FileName>Implementation\Mappers\EventMapper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DestructionMapModel.Implementation.Mappers.ManagerMapper">
+    <Position X="16.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAEAAAAAAA=</HashCode>
+      <FileName>Implementation\Mappers\ManagerMapper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DestructionMapModel.Implementation.Mappers.SourceMapper">
+    <Position X="11.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAEAAAAAAA=</HashCode>
+      <FileName>Implementation\Mappers\SourceMapper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DestructionMapModel.Implementation.Mappers.UserMapper">
+    <Position X="5.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAEAAAAAAA=</HashCode>
+      <FileName>Implementation\Mappers\UserMapper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DestructionMapModel.Implementation.Services.EventService">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAEAAAQBAgEAAAAAhAAAAAAAAAAAACABpAAAAAAAAQ=</HashCode>
+      <FileName>Implementation\Services\EventService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DestructionMapModel.Implementation.Services.ManagerService">
+    <Position X="2.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAhAAAAAAAAgAQAAAAAAAAAAAAAAAEABAAAAA=</HashCode>
+      <FileName>Implementation\Services\ManagerService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DestructionMapModel.Implementation.Services.UserService">
+    <Position X="2.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAQAAAAAAAgAAAAAAAQgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Implementation\Services\UserService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DestructionMapModel.Implementation.Services.QueryProcessing.BuildingTypeHandler">
+    <Position X="9.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Implementation\Services\QueryProcessing\BuildingTypeHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DestructionMapModel.Implementation.Services.QueryProcessing.DateHandler" Collapsed="true">
+    <Position X="7.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Implementation\Services\QueryProcessing\DateHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DestructionMapModel.Implementation.Services.QueryProcessing.EventComparer">
+    <Position X="7" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Implementation\Services\QueryProcessing\EventComparer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DestructionMapModel.Implementation.Services.QueryProcessing.LocationHandler" Collapsed="true">
+    <Position X="12.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Implementation\Services\QueryProcessing\LocationHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DestructionMapModel.Implementation.Services.QueryProcessing.QueryHandler" Collapsed="true">
+    <Position X="13.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Implementation\Services\QueryProcessing\QueryHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DestructionMapModel.Implementation.Services.QueryProcessing.WeaponSystemHandler" Collapsed="true">
+    <Position X="13.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Implementation\Services\QueryProcessing\WeaponSystemHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DestructionMapModel.Models.Event">
+    <Position X="8.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACABAAABAgAAAAAAoAAAAAAAAAAAAAAQAAAABAAAA=</HashCode>
+      <FileName>Models\Event.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DestructionMapModel.Models.Manager">
+    <Position X="3.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Manager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DestructionMapModel.Models.Source">
+    <Position X="0.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Models\Source.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DestructionMapModel.Models.User">
+    <Position X="8.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAEAAAAQABAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DestructionMapDAL.DestructionMapContext">
+    <Position X="18.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DestructionMapDAL.UnitOfWork">
+    <Position X="13.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DestructionMapDAL.Repositories.Repository&lt;TEntity, TIdentity&gt;">
+    <Position X="8.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DestructionMapDAL.Repositories.UserRepository">
+    <Position X="10.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DestructionMapDAL.Repositories.SourceRepository">
+    <Position X="8.75" Y="13" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DestructionMapDAL.Repositories.ManagerRepository">
+    <Position X="11" Y="11.25" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DestructionMapDAL.Repositories.ApprovalsRepository">
+    <Position X="6.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DestructionMapDAL.Repositories.EventRepository">
+    <Position X="6.75" Y="11" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DestructionMapDAL.Entities.EventEntity" Collapsed="true">
+    <Position X="13.25" Y="15.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DestructionMapDAL.Entities.ManagerEntity" Collapsed="true">
+    <Position X="15" Y="17" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DestructionMapDAL.Entities.Managers_Approvals" Collapsed="true">
+    <Position X="18.25" Y="15.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DestructionMapDAL.Entities.SourceEntity" Collapsed="true">
+    <Position X="15" Y="15.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DestructionMapDAL.Entities.UserEntity" Collapsed="true">
+    <Position X="17.5" Y="17" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Interface Name="DestructionMapModel.Abstraction.IMappers.IBackMapper&lt;TEntity, TModel&gt;">
+    <Position X="10.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Abstraction\IMappers\IBackMapper.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DestructionMapModel.Abstraction.IMappers.IMapper&lt;TEntity, TModel&gt;">
+    <Position X="10.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Abstraction\IMappers\IMapper.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DestructionMapModel.Abstraction.IServices.IEventService">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAEAAAQBAAEAAAAABAAAAAAAAAAAACABoAAAAAAAAQ=</HashCode>
+      <FileName>Abstraction\IServices\IEventService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DestructionMapModel.Abstraction.IServices.IManagerService">
+    <Position X="16" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAhAAAAAAAAAAQAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Abstraction\IServices\IManagerService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DestructionMapModel.Abstraction.IServices.IUserService">
+    <Position X="6.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Abstraction\IServices\IUserService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DestructionMapDAL.IUnitOfWork">
+    <Position X="14.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="DestructionMapDAL.IRepositories.IApprovalsRepository">
+    <Position X="13.75" Y="12" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="DestructionMapDAL.IRepositories.IRepository&lt;TEntity, TIdentity&gt;" Collapsed="true">
+    <Position X="15.75" Y="12" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="DestructionMapDAL.IRepositories.IManagerRepository" Collapsed="true">
+    <Position X="18.5" Y="11.25" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="DestructionMapDAL.IRepositories.ISourceRepository" Collapsed="true">
+    <Position X="17.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="DestructionMapDAL.IRepositories.IUserRepository" Collapsed="true">
+    <Position X="17.25" Y="12.75" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="DestructionMapDAL.IRepositories.IEventRepository" Collapsed="true">
+    <Position X="15.25" Y="13.25" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
