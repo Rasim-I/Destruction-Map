@@ -1,4 +1,5 @@
-﻿using DestructionMapDAL;
+﻿using System.Text.RegularExpressions;
+using DestructionMapDAL;
 using DestructionMapDAL.Entities;
 using DestructionMapModel.Abstraction.IMappers;
 using DestructionMapModel.Abstraction.IServices;
@@ -32,7 +33,22 @@ public class EventService : IEventService
 
     public List<Event> GetByLocation(string region)
     {
+        
         return new List<Event>(_unitOfWork.Events.GetByLocation(region.ToLower()).ToList().ConvertAll(_eventMapper.ToModel));
+    }
+
+    public List<Event> GetByLocationOnly(string location)
+    {
+        string pattern = $@"\b{Regex.Escape(location)}\b";
+        
+        var result = _unitOfWork.Events.GetByLocation(location.ToLower()).ToList();
+
+        return result.Where(e => Regex.IsMatch(e.Location, pattern, RegexOptions.IgnoreCase))
+            .Select(e => _eventMapper.ToModel(e)).ToList();
+
+        //return new List<Event>(_unitOfWork.Events.GetByLocation(location.ToLower())
+        //    .Where(e => Regex.IsMatch(e.Location, pattern, RegexOptions.IgnoreCase))
+        //    .Select(e => _eventMapper.ToModel(e))).ToList();
     }
 
     public List<Event> GetByWeaponSystem(WeaponSystem weaponSystem)
@@ -58,9 +74,20 @@ public class EventService : IEventService
 
     public List<Event> GetByDescription(string description)
     {
-        return new List<Event>(_unitOfWork.Events
-            .GetByDescription(description).ToList()
-            .ConvertAll(_eventMapper.ToModel));
+        string pattern = $@"\b{Regex.Escape(description)}\b";
+        
+        //return new List<Event>(_unitOfWork.Events
+        //    .GetByDescription(description).ToList()
+        //    .ConvertAll(_eventMapper.ToModel));
+
+        var result = _unitOfWork.Events.GetByDescription(description.ToLower()).ToList();
+
+        return result.Where(e => Regex.IsMatch(e.Description, pattern, RegexOptions.IgnoreCase))
+            .Select(e => _eventMapper.ToModel(e)).ToList();
+        
+        return new List<Event>(_unitOfWork.Events.GetByDescription(description.ToLower())
+            .Where(e => Regex.IsMatch(e.Description, pattern, RegexOptions.IgnoreCase))
+            .Select(e => _eventMapper.ToModel(e))).ToList();
     }
 
     public List<Event> FindByParameters(EventParameters eventParameters)
@@ -90,14 +117,15 @@ public class EventService : IEventService
         List<Event> matchByWeaponSystem = new List<Event>();
         List<Event> matchByBuildingType = new List<Event>();
 
-
+        var e = GetByDescription("human");
+        
         WeaponSystem weaponSystem;
         BuildingType buildingType;
         
         foreach (string word in keyWordSplit)
         {
             matchByDescription = GetByDescription(word);
-            matchByLocation = GetByLocation(word);
+            matchByLocation = GetByLocationOnly(word);
 
             if (Enum.TryParse(word, true, out weaponSystem))
                 matchByWeaponSystem = GetByWeaponSystem(weaponSystem);
@@ -120,7 +148,7 @@ public class EventService : IEventService
 
         string[] sourcesSplit = sources.Split("\n");
         
-        Event eventToSave = new Event(userId, eventDate, description, location, buildingType, weaponSystem);
+        Event eventToSave = new Event(userId, eventDate, location, description, buildingType, weaponSystem);
         //eventToSave.Id = "TestEvent";  //REMOVE THIS
         eventToSave.Id = Guid.NewGuid().ToString();
         eventToSave.Type = Type.Proposal;
@@ -141,25 +169,32 @@ public class EventService : IEventService
 
     public List<Event> GetEventsToApprove(string userId)
     {
-        /*
-        List<Managers_Approvals> alreadyApprovedByThisManager = _unitOfWork.Approvals.Find(a => a.Manager_Id == userId) .ToList();
 
-        List<Event> eventsToApprove =
-            _unitOfWork.Events.GetEventsToApprove().ToList().ConvertAll(e => _eventMapper.ToModel(e));
+        List<Managers_Approvals> alreadyApprovedByThisManager = _unitOfWork.Approvals.Find(a => a.Manager_Id == userId).ToList();
 
-        foreach (var eventToCheck in eventsToApprove)
+        List<string> eventsToApprove = new List<string>();
+
+        foreach (var eventId in alreadyApprovedByThisManager)
         {
-            foreach (var alredyApproved in alreadyApprovedByThisManager)
-            {
-                if (eventToCheck.Id == alredyApproved.Event_Id)
-                {
-                    eventsToApprove.Remove(eventToCheck);
-                }
-            }
+            eventsToApprove.Add(eventId.Event_Id);
         }
-*/
+
+        List<Event> eventProposals = _unitOfWork.Events.GetEventsToApprove().ToList().ConvertAll(_eventMapper.ToModel);
+        List<Event> result = new List<Event>();
+        result.AddRange(eventProposals);
+
+        foreach (var eventId in eventsToApprove)
+        {
+            foreach (var resultEvent in eventProposals)
+            {
+                if (resultEvent.Id == eventId)
+                    //result.Add(resultEvent);
+                    result.Remove(resultEvent);
+            }
+            
+        }
         
-        return _unitOfWork.Events.GetEventsToApprove().ToList().ConvertAll(e => _eventMapper.ToModel(e));
+        return result;
     }
 
 

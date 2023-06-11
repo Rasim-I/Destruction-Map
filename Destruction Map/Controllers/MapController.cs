@@ -46,7 +46,7 @@ public class MapController : Controller
         {
             ViewData[location.Key] = location.Value;
             
-            Console.WriteLine(location.Key + " ---- " + location.Value);
+            //Console.WriteLine(location.Key + " ---- " + location.Value);
         }
     }
     

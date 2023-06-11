@@ -11,3 +11,4 @@ public class ManagerRepository : Repository<ManagerEntity, string>, IManagerRepo
     }
     
 }
+

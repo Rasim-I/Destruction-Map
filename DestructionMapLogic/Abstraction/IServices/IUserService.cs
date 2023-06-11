@@ -6,7 +6,7 @@ public interface IUserService
 {
     public bool CreateUser(string id, string name, string surname, int age, string address);
 
-    public bool UpdateUser(string id, string name, string surname, int age, string address);
+    public bool UpdateUser(string id, string name, string surname, string address);
 
     public User GetUserById(string id);
 

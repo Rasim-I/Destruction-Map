@@ -36,6 +36,13 @@ public class DestructionMapContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         /*
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.Entity<EventEntity>()
+            .HasMany(e => e.SourceList)
+            .WithOne(s => s.Event_Id)
+            .HasForeignKey(s => s.Event_Id)
+            .OnDelete(DeleteBehavior.Cascade);
+        
         modelBuilder
             .Entity<EventEntity>()
             .HasMany<SourceEntity>(e => e.SourceList)

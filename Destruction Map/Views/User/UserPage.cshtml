@@ -1,19 +1,55 @@
-﻿@page
-@model Destruction_Map.Views.User.UserPage
+﻿@model UserWebModel
+@using Destruction_Map.Areas.Identity.Data
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+
+
 
 @{
     //Layout = null;
 }
 
-<!DOCTYPE html>
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Map" asp-action="Index">Destruction Map</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
 
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-<div>
+                <!--partial name="_LoginPartial"/-->
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main style="display: flex; justify-content: center" role="main"><br/>
     
-</div>
-</body>
-</html>
+        
+        <div style="justify-content: center; width: 30%" class="addEventMenu">
+                <h2 align="center">User Page</h2><br/>
+                
+            <form method="post" asp-action="UpdateUser">
+                <input type="hidden" value="@Model.Id" name="userId"/>
+                Email:<br/> <input readonly class="form-control" required type="text" value="@Model.Email" name="email"/><br/><br/>
+
+                Name: @Model.Name<br/> <input placeholder="Name" class="form-control" type="text" name="name"/><br/><br/>
+
+                Surname: @Model.Surname<br/><input placeholder="Surname" class="form-control" type="text" name="surname"/><br/><br/>
+
+                Address: @Model.Address<br/><input placeholder="Address" class="form-control" type="text" name="address"/><br/><br/>
+
+                <div style="display: flex; justify-content: center">
+                    <input style="align-items: center" class="btn btn-primary btn-lg" type="submit" value="Save"/>
+                </div>
+            </form>
+                
+            </div>
+            
+
+
+
+
+</main>

@@ -84,7 +84,7 @@ function OpenInfoPanel(clicked_id)
 
 <main role="main" >
     
-    <div class="MapContent">
+<div class="MapContent">
     
     
     <div class="infoContainer" id="infoContainer">
@@ -93,35 +93,35 @@ function OpenInfoPanel(clicked_id)
 
         @if (Model != null)
         {
-        foreach (var ev in Model)
-        {
-        <div class="event">
-            @ev.Description<br/>
-            Location: @ev.Location<br/>
-            BuildingType: @ev.BuildingType<br/>
-            Weapon system: @ev.WeaponSystem<br/>
-            Date: @ev.EventDate.ToString("dd-MM-yyyy")<br/>
-            Sources: <br/>
-            
-            @if (ev.SourceList != null && ev.SourceList.Count>0)
+            foreach (var ev in Model)
             {
-                int linkCount = 0;
-                
-                @for (int i = 0; i<ev.SourceList.Count; i++)
-                {
-                    if (linkCount < 2 && ev.SourceList[i].Link != "HIDDEN")
+                <div class="event">
+                    @ev.Description<br/>
+                    Location: @ev.Location<br/>
+                    BuildingType: @ev.BuildingType<br/>
+                    Weapon system: @ev.WeaponSystem<br/>
+                    Date: @ev.EventDate.ToString("dd-MM-yyyy")<br/>
+                    Sources: <br/>
+            
+                    @if (ev.SourceList != null && ev.SourceList.Count>0)
                     {
-                        @ev.SourceList[i].Link; <br/>
-                        linkCount++;
+                        int linkCount = 0;
+                
+                        @for (int i = 0; i<ev.SourceList.Count; i++)
+                        {
+                            if (linkCount < 2 && ev.SourceList[i].Link != "HIDDEN")
+                            {
+                                @ev.SourceList[i].Link; <br/>
+                                linkCount++;
+                            }
+
+                        }
+
                     }
 
-                }
-
-            }
-
-        </div>
+                </div>
             
-        }
+            }
         }
         else
         {
@@ -129,6 +129,31 @@ function OpenInfoPanel(clicked_id)
         }
 
     </div>
+    
+<div class="colorBox">
+    
+    <div class="colorInfoBox">
+        <div class="colorSquareGreen"></div>
+        <p>1-2 events</p><br/>
+    </div>
+
+    <div class="colorInfoBox">
+        <div class="colorSquareYellow"></div>
+        <p>3-10 events</p><br/>
+    </div>
+
+    <div class="colorInfoBox">
+        <div class="colorSquareOrange"></div>
+        <p>11-15 events</p><br/>
+    </div>
+
+    <div class="colorInfoBox">
+        <div class="colorSquareRed"></div>
+        <p>>15 events</p><br/>
+    </div>
+
+
+</div>
     
 
     <div class="map">

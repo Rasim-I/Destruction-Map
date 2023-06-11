@@ -15,12 +15,12 @@ public class EventRepository : Repository<EventEntity, string>, IEventRepository
 
     public IEnumerable<EventEntity> GetByWeaponSystem(WeaponSystem weaponSystem)
     {
-        return db.Events.Where(e => e.WeaponSystem == weaponSystem);
+        return db.Events.Where(e => e.WeaponSystem == weaponSystem && e.Type == Type.Event); //+ type
     }
 
     public IEnumerable<EventEntity> GetByBuildingType(BuildingType buildingType)
     {
-        return db.Events.Where(e => e.BuildingType == buildingType);
+        return db.Events.Where(e => e.BuildingType == buildingType && e.Type == Type.Event); //+ type
     }
 
     public IEnumerable<EventEntity> GetByType(Type type)
@@ -35,19 +35,23 @@ public class EventRepository : Repository<EventEntity, string>, IEventRepository
 
     public IEnumerable<EventEntity> GetByLocation(string location)
     {
-        return db.Events.Where(e => e.Location.ToLower().Contains(location) ||
-                                    e.Description.ToLower().Contains(location))
+        return db.Events.Where(e => (e.Location.ToLower().Contains(location) ||
+                                    e.Description.ToLower().Contains(location)) && e.Type == Type.Event) //+ type
             .Include(e => e.SourceList);
     }
 
     public IEnumerable<EventEntity> GetByDate(DateTime eventDate)
     {
-        return db.Events.Where(e => e.EventDate == eventDate);
+        return db.Events.Where(e => e.EventDate == eventDate && e.Type == Type.Event); //+ type
     }
 
+    public IEnumerable<EventEntity> GetByLocationOnly(string location)
+    {
+        return db.Events.Where(e => e.Location.ToLower().Contains(location.ToLower()));
+    }
     public IEnumerable<EventEntity> GetByDescription(string description)
     {
-        return db.Events.Where(e => e.Description == description);
+        return db.Events.Where(e => e.Description.ToLower().Contains(description.ToLower()) && e.Type == Type.Event); //+ type
     }
 
     public IEnumerable<EventEntity> GetEventsToApprove()
@@ -57,7 +61,7 @@ public class EventRepository : Repository<EventEntity, string>, IEventRepository
 
     public int GetIntensityByLocation(string location)
     {
-        return db.Events.Count(e => e.Location.ToLower().Contains(location.ToLower()));
+        return db.Events.Count(e => e.Location.ToLower().Contains(location.ToLower()) && e.Type == Type.Event); //+ type
 
     }
 }

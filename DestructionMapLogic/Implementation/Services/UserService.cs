@@ -33,14 +33,14 @@ public class UserService : IUserService
 
     }
 
-    public bool UpdateUser(string id, string name, string surname, int age, string address)
+    public bool UpdateUser(string id, string name, string surname, string address)
     {
         UserEntity? userToChange = _unitOfWork.Users.Find(u=> u.Id == id).FirstOrDefault();
         if (userToChange != null)
         {
             userToChange.Name = name.IsNullOrEmpty() ? userToChange.Name : userToChange.Name = name;
             userToChange.Surname = surname.IsNullOrEmpty() ? userToChange.Surname : userToChange.Surname = surname;
-            userToChange.Age = age == 0 ? userToChange.Age : userToChange.Age = age;
+            //userToChange.Age = age == 0 ? userToChange.Age : userToChange.Age = age;
             userToChange.Address = address.IsNullOrEmpty() ? userToChange.Address : userToChange.Address = address;
 
             _unitOfWork.Save();

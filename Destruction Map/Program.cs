@@ -18,7 +18,7 @@ using Microsoft.Extensions.Primitives;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.VisualBasic;
 using Manager = DestructionMapModel.Models.Manager;
-using User = Destruction_Map.Models.User; //DestructionMapModel.Models.User;
+//using User = Destruction_Map.Models.User; //DestructionMapModel.Models.User;
 using Destruction_Map.Data;
 
 var builder = WebApplication.CreateBuilder(args);

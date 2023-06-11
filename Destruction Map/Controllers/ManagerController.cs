@@ -34,6 +34,7 @@ public class ManagerController : Controller
         string userId = _userManager.GetUserId(User);
         List<Event> eventsToApprove = _eventService.GetEventsToApprove(userId);
 
+        _managerService.ApproveOrRemove("TestEvent");
         return View(eventsToApprove);
     }
 

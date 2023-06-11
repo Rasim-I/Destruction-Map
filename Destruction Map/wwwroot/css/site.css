@@ -34,6 +34,55 @@ main{
   flex: 1 1 auto;
 }
 
+.colorBox{
+  position: fixed;
+  bottom: 22px;
+  right: 10px;
+  width: 150px;
+  height: 120px;
+  background-color: #d7d8da;
+  border: 1px solid #ccc;
+  padding: 10px;
+  
+}
+
+.colorInfoBox{
+
+  display: flex;
+}
+
+.colorSquareGreen{
+  width: 10px;
+  height: 10px;
+  background-color: green;
+  margin: 7px 5px 0 0;
+}
+
+.colorSquareYellow{
+  width: 10px;
+  height: 10px;
+  background-color: yellow;
+  margin: 7px 5px 0 0;
+}
+
+.colorSquareOrange{
+  width: 10px;
+  height: 10px;
+  background-color: orange;
+  margin: 7px 5px 0 0;
+}
+
+.colorSquareRed{
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  margin: 7px 5px 0 0;
+}
+
+.colorInfoBox p {
+  margin: 0;
+}
+
 .MapContent{
   display: flex;
   flex-wrap: wrap;
@@ -46,8 +95,9 @@ main{
 
 .map{
   margin-top: 8vh;
-  margin-left: 200px;;
+  margin-left: 200px;
   
+ /* width: calc(100% - 200px); */
 }
 
 .search_btn{
@@ -102,15 +152,32 @@ a path:hover{
 
 .infoContainer{
 
+  position: absolute;
+  top: 80px;
+  left: 0;
+  
   overflow: auto;
-  height: 87vh;
+  height: 89vh;
   background-color: #d7d8da;
   
   display: flex;
   flex-direction: column;
   justify-content: start;
-  width: 400px;
+  width: calc(400px - 50px)
   
+}
+
+@media (max-width: 900px) {
+  .infoContainer {
+  width: calc(400px - 100px);
+  height: 68vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .map{
+    /*width: calc(100% - 100px);*/
+  }
 }
 
 .event{
