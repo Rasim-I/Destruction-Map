@@ -32,6 +32,14 @@ body {
 
 main{
   flex: 1 1 auto;
+
+}
+
+footer{
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .colorBox{
@@ -45,6 +53,7 @@ main{
   padding: 10px;
   
 }
+
 
 .colorInfoBox{
 
@@ -89,15 +98,21 @@ main{
   flex-direction: column;
   
   height: 87vh;
-  width: 1600px;
+  width: 100%; /*width: 1600px;*/
   align-content: center;
 }
 
 .map{
   margin-top: 8vh;
-  margin-left: 200px;
-  
+  /*margin-left: 200px;*/
  /* width: calc(100% - 200px); */
+}
+
+
+
+.mapSvg{
+  width: calc(120% - 100px);
+  max-width: 100%;
 }
 
 .search_btn{
@@ -177,7 +192,9 @@ a path:hover{
 @media (max-width: 768px) {
   .map{
     /*width: calc(100% - 100px);*/
+
   }
+
 }
 
 .event{

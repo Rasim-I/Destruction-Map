@@ -9,6 +9,7 @@ using DestructionMapModel.Models;
 using DestructionMapModel.Models.Enums;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Destruction_Map.Controllers;
 
@@ -64,6 +65,11 @@ public class MapController : Controller
     [HttpGet]
     public IActionResult SearchByKeyWords(string keyWords)
     {
+        if (keyWords.IsNullOrEmpty())
+        {
+            ColorMap();
+            return View("Index");
+        }
         List<Event> filteredList = _eventService.FindByKeyWords(keyWords);
         ViewBag.Events = filteredList;
         
